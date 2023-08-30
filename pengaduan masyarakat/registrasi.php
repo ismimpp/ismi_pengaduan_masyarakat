@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <body bgcolor="EAC696">
+    <body bgcolor="96C291">
     <h1><b><center>REGISTRASI</center></b></h1>
     <center>
         <div>
@@ -14,10 +14,10 @@
         style="display:block; margin:auto; widht:150px; height:150px;">
     <center>
     </div>
-    <form action="login.php" method="post">
+    <form action="Halaman_pelaporan.php" method="post">
         <p>Nik: <input type="text" name="nik" id=""></p>
         <p>Nama: <input type="text" name="nama" id=""></p>
-        <p>Username: <input type="text" name="username" id=""></p>
+        <p>Username: <input type="text" name="username" id=""></p>m
         <p>Telepon: <input type="text" name="Telepon" id=""></p>
         <button type="submit">Daftar</button>
     </form>

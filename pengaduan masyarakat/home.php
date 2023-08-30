@@ -6,6 +6,13 @@
     <Link rel="stylesheet" href="bs/bs/css/bootstrap.min.css">
 </head>
 <body>
+<?php
+    $koneksi= mysqli_connect("localhost", "root", "", "pelaporan_pengaduan_masyarakat");
+    
+  
+    $query = $koneksi->query("SELECT * FROM Pengaduan");
+   
+?>
 <nav class="navbar navbar-expand-lg" style="background-color: #7A9D54;">
     <a class="navbar-brand" href="#">Pengaduan Masyarakat</a>
  
@@ -17,19 +24,21 @@
  
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Mayarakat</a>
+          <a class="nav-link" href="halaman_pelaporan.php">isi laporan</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Login</a>
+          <a class="nav-link" href="logout.php" tabindex="-1" aria-disabled="true">Logout</a>
         </li>
       </ul>
  
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="search" aria-label="search">
       </form>
+
+      <button type="<button type="button" class="btn btn-light" ><a href="halaman_pelaporan.php">buat laporan</a> </button>
  
    </div>
 </div>
@@ -49,37 +58,21 @@
       <th scope="col">status</th>
 
     </tr>
-  </thead>
   <tbody>
+    <?php while( $data = mysqli_fetch_array($query)) : ?>
     <tr>
       <th scope="row">1</th>
-      <td>111</td>
-      <td>08/18/23</td>
-      <td>12345</td>
-      <td>longsor</td>
+      <td><?= $data['id_pengaduan'] ?></td>
+      <td><?= $data['tgl_pengaduan'] ?></td>
+      <td><?= $data['nik'] ?></td>
+      <td><?= $data['isi_laporan'] ?></td>
       <td>
         <img src="longsor.jpg" style="height:80px; weight:80px;">
       </td>
       <td>diproses</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>222</td>
-      <td>11/09/23</td>
-      <td>54321</td>
-      <td>gempa bumi</td>
-      <td>
-        <img src="gempa.jpg" style="height:80px; weight:80px;">
-      </td>
-      <td>diterima</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td></td>
-      <td></td>
-    </tr>
+    <?php endwhile ?>
   </tbody>
 </table>
-</div>
 </body>
 </html>
